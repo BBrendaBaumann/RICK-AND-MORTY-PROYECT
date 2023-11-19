@@ -1,25 +1,24 @@
-import Card from "./Card";
+import Card from "../card/Card";
 import React from "react";
 //{ characters }
 //{id,name,status,species,gender,origin,image,onClose}, index
-export default function Cards(props) {
+export default function Cards({characters, onClose}) { 
   return (
     <div>
-      { props.characters &&
-      props.characters.map((character) => {
-        return (
+      { characters.map(character => (
           <Card 
-          key={character.index} 
+          key={character.id} 
+          id={character.id} 
           name={character.name}
           status={character.status}
           species={character.species}
           gender={character.gender}
           origin= {character.origin.name}
           image={character.image}
-          onClose={() => window.alert("Emulamos que se cierra la card")}
+          onClose={onClose}
           > </Card>
-        );
-      })}
+        ))
+      }
     </div>
   );
 }
