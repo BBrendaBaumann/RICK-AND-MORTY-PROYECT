@@ -1,7 +1,9 @@
 import Card from "../card/Card";
 import React from "react";
+
 //{ characters }
 //{id,name,status,species,gender,origin,image,onClose}, index
+
 export default function Cards({characters, onClose}) { 
   return (
     <div>

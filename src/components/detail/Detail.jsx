@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
 
