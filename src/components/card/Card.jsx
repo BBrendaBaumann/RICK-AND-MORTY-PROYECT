@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addFav } from "../../redux/actions";
 import { removeFav } from "../../redux/actions";
+
 export default function Card(props) {
   const originName = origin.name;
 
