@@ -7,7 +7,11 @@ import React from "react";
 export default function Cards({characters, onClose}) { 
   return (
     <div>
-      { characters.map(character => (
+      { 
+       !characters.length
+       ? <h2>Comience su aventura ingresando un id...</h2>
+       :
+      characters.map(character => (
           <Card 
           key={character.id} 
           id={character.id} 

@@ -8,6 +8,10 @@ import Detail from "./components/detail/Detail.jsx";
 import About from "./components/about/About.jsx";
 import NotFound from "./components/notfound/NotFound.jsx";
 import Form from "./components/form/form.jsx";
+import Favorites from "./components/favorites/Favorites.jsx";
+import { useDispatch } from "react-redux";
+import { removeFav } from "./redux/actions.js";
+
 
 const URL = "https://rym2.up.railway.app/api/character";
 const API_KEY = "henrystaff";
@@ -30,8 +34,11 @@ function onSearch(id) {
      navigate("/home");
 }
 
+const dispatch = useDispatch();
 const onClose = id => {
   setCharacters(characters.filter(char => char.id !== Number(id)))
+  dispatch(removeFav(id));
+
 }
 
 
@@ -55,8 +62,8 @@ function logout() {
 
 useEffect(() => {
    //* Logueo automático
-   // !access && navigate('/home');
-   !access && navigate('/');
+    !access && navigate('/home');
+   // !access && navigate('/');
 }, [access]);
 
   
@@ -87,6 +94,10 @@ useEffect(() => {
         path="/detail/:id"
         element={<Detail/>}
         />
+        <Route 
+        path="/favorites"
+        element={<Favorites onClose={onClose}/>} />
+
         <Route
         path="*"
         element= {<NotFound/>}
