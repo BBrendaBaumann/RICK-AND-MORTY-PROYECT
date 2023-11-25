@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addFav } from "../../redux/actions";
 import { removeFav } from "../../redux/actions";
+import styles from "./Card.module.css"
 
 export default function Card(props) {
   const originName = origin.name;
@@ -30,14 +31,14 @@ export default function Card(props) {
     }, [myFavorites]); // se ejecuta useEffect cada vez que se modifique myFavorites
 
   return (
-    <div>
+    <div className={styles.container}>
       {isFav ? (
-        <button onClick={handleFavorite}>❤️</button>
+        <button className={styles.button} onClick={handleFavorite}>❤️</button>
       ) : (
-        <button onClick={handleFavorite}>🤍</button>
+        <button className={styles.button} onClick={handleFavorite}>🤍</button>
       )}
 
-      <button onClick={() => props.onClose(props.id)}> X </button>
+      <button className={styles.buttonx} onClick={() => props.onClose(props.id)}> X </button>
       <h2>Nombre: {props.name} </h2>
       <h2>Key: {props.id} </h2>
       <h2>Status: {props.status} </h2>

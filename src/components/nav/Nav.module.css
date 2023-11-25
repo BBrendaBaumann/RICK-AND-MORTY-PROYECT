@@ -1,0 +1,14 @@
+.container{
+    background-color:darkseagreen;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+
+}
+
+.button{
+    background-color: darkgreen;
+    color:burlywood;
+    margin: 20px;
+    padding: 20px;
+}
