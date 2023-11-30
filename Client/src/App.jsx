@@ -23,7 +23,9 @@ const navigate = useNavigate();
 const location = useLocation();
 
 function onSearch(id) {
-  axios(`${URL}/${id}?key=${API_KEY}`).then(
+  //! axios(`${URL}/${id}?key=${API_KEY}`)
+  axios(`http://localhost:3001/rickandmorty/character/${id}`)
+  .then(
      ({ data }) => {
         if (data.name) {
            setCharacters([...characters, data]);
