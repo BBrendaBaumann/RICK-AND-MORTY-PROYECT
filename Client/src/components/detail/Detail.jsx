@@ -7,12 +7,12 @@ const API_KEY = "henrystaff";
 
 export default function Detail(props) {
 
-    const params = useParams();
+    const {id} = useParams();
 
     const [character, setCharacter] = useState({});
 
     useEffect(() => {
-        //! axios(`${URL}/${id}?key=${API_KEY}`)
+        // axios(`${URL}/${id}?key=${API_KEY}`)
         axios(`http://localhost:3001/rickandmorty/character/${id}`)
         .then(
            ({ data }) => {

@@ -10,7 +10,7 @@ export default function Cards({characters, onClose}) {
     <div className={styles.container}>
       { 
        !characters.length
-       ? <h2>Comience su aventura ingresando un id...</h2>
+       ? <h2 className={styles.h2}>Comience su aventura ingresando un id...</h2>
        :
       characters.map(character => (
           <Card 
