@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addFav } from "../../redux/actions";
 import { removeFav } from "../../redux/actions";
-import styles from "./Card.module.css"
+
 
 export default function Card(props) {
   const originName = origin.name;
@@ -31,14 +31,22 @@ export default function Card(props) {
     }, [myFavorites]); // se ejecuta useEffect cada vez que se modifique myFavorites
 
   return (
-    <div className={styles.container}>
+    <div className="card_container__div">
       {isFav ? (
-        <button className={styles.button} onClick={handleFavorite}>❤️</button>
+        <button 
+        className="card_container__div_button_cor" 
+        onClick={handleFavorite}>❤️</button>
       ) : (
-        <button className={styles.button} onClick={handleFavorite}>🤍</button>
+        <button 
+        className="card_container__div_button_cor" 
+        onClick={handleFavorite}>🤍</button>
       )}
 
-      <button className={styles.buttonx} onClick={() => props.onClose(props.id)}> X </button>
+      <button 
+      className="card_container__div_buttonx" 
+      onClick={() => props.onClose(props.id)}> X 
+      </button>
+      <div className="card_container__div_text">
       <h2>Nombre: {props.name} </h2>
       <h2>Key: {props.id} </h2>
       <h2>Status: {props.status} </h2>
@@ -46,8 +54,11 @@ export default function Card(props) {
       <h2>Género: {props.gender} </h2>
       <h2>Origen: {props.originName} </h2>
       <Link to={`/detail/${props.id}`}>
-        <img src={props.image} alt="" />
+        <img className="card_container__div_img" src={props.image} alt="" />
       </Link>
+      </div>
+      
+      
     </div>
   );
 }

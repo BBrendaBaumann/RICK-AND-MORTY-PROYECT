@@ -1,11 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../card/Card.jsx";
 import { filterCards, orderCards } from "../../redux/actions.js";
-import styles from "./Favorites.module.css"
+/* import styles from "./Favorites.module.css" */
+import { TbArrowBackUp } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
+
 
 
 export default function Favorites({ onClose }) {
-
+   const navigate = useNavigate();
+   const comeback = () => {
+     navigate("/home");
+   };
   const myFavorites = useSelector(state => state.myFavorites);
 
   const dispatch = useDispatch();
@@ -19,18 +25,41 @@ export default function Favorites({ onClose }) {
 
    return (
       <div>
-         <div>
-            <select className={styles.select} name="order" onChange={handleOrder}>
-               <option className={styles.option} value="A">Ascendente</option>
-               <option className={styles.option} value="D">Descendente</option>
+         <div className="favorites_container">
+         <div className="favorites_container__filter">
+            <select 
+            className="favorites_container__button" 
+            name="order" 
+            onChange={handleOrder}
+            >
+               
+            <option className="favorites_container__button_option" value="A">
+               Ascendente
+               </option>
+            <option className="favorites_container__button_option" value="D">
+               Descendente
+               </option>
             </select>
-            <select className={styles.select} name="filter" onChange={handleFilter}>
-               <option className={styles.option} value="All">All</option>
-               <option className={styles.option} value="Male">Male</option>
-               <option className={styles.option} value="Female">Female</option>
-               <option className={styles.option} value="Genderless">Genderless</option>
-               <option className={styles.option} value="unknown">unknown</option>
+
+
+            <select 
+            className="favorites_container__button" 
+            name="filter" 
+            onChange={handleFilter}
+            >
+               <option className="favorites_container__button_option" value="All">All</option>
+               <option className="favorites_container__button_option" value="Male">Male</option>
+               <option className="favorites_container__button_option" value="Female">Female</option>
+               <option className="favorites_container__button_option" value="Genderless">Genderless</option>
+               <option className="favorites_container__button_option" value="unknown">unknown
+               </option>
             </select>
+            <TbArrowBackUp
+            className="favorites_container__icon"
+            id="favorites_comeback"
+            onClick={comeback}
+            />
+        
          </div>
 
          <div
@@ -58,6 +87,7 @@ export default function Favorites({ onClose }) {
                   />
                ))
             }
+         </div>
          </div>
       </div>
    );

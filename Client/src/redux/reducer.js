@@ -20,21 +20,27 @@ export default function reducer(state = initialState, { type, payload }) {
   // const { type, payload } = action;
   switch(type) {
     case ADD_FAV: {
-      return {
+      return { ...state, myFavorites: payload, allCharacters: payload };
+
+      //* homework express reemplaza  return ADD_FAV porque ya nos manda info el back end
+      /* return {
         ...state,
         allCharacters: [...state.allCharacters, payload],
         myFavorites: [...state.allCharacters, payload]
-      }
+      } */
     }
     case REMOVE_FAV: {
-      const filteredFavs = state.allCharacters.filter(
+      return { ...state, myFavorites: payload };
+
+      //* homework express reemplaza  return REMOVE_FAV porque ya nos manda info el back end
+      /* const filteredFavs = state.allCharacters.filter(
         favorite => favorite.id !== Number(payload)
       );
       return {
         ...state,
         allCharacters: filteredFavs,
         myFavorites: filteredFavs
-      }
+      } */
     }
     case FILTER:{
       //* { type: FILTER, payload: "FEMALE" }

@@ -22,13 +22,15 @@ function App() {
 
   const [characters, setCharacters] = useState([]);
 
-  function onSearch(id) {
+  //* homework async await cambiamos promesas por async await
+  /* function onSearch(id) {
     const characterId = characters.filter((char) => char.id === Number(id));
     if (characterId.length) {
       return alert(`${characterId[0].name} ya existe!`);
     }
-    // axios(`${URL}/${id}?key=${API_KEY}`)
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+    
+    axios(`http://localhost:3001/rickandmorty/character/${id}`)
+    .then(
       ({ data }) => {
         if (data.name) {
           setCharacters([...characters, data]);
@@ -38,7 +40,29 @@ function App() {
       }
     );
     navigate("/home");
-  }
+  } */
+
+  async function onSearch(id) {
+    try {
+       //* Verificar si existe character:
+       const characterId = characters.filter(
+          char => char.id === Number(id)
+       )
+       if(characterId.length) {
+          return alert(`${characterId[0].name} ya existe!`)
+       }
+
+       const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+       if (data.name) {
+          setCharacters([...characters, data]);
+          navigate("/home");
+       } else {
+          alert('¡El id debe ser un número entre 1 y 826!');
+       }
+    } catch (error) {
+       alert(error.message);
+    }
+ }
 
   const onClose = (id) => {
     setCharacters(characters.filter((char) => char.id !== Number(id)));
@@ -50,14 +74,42 @@ function App() {
   const EMAIL = "brenbaumann40@gmail.com";
   const PASSWORD = "12345697";
 
-  function login(userData) {
+  /* function login(userData) {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
       setAccess(true);
       navigate("/home");
     } else {
       alert("Credenciales incorrectas!"); //! mensaje para que el usuario no entre en panico si no coinciden las credenciales o accesos
     }
+  } */
+  //*promesa 
+  /* function login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+ } */
+
+ //*async await
+ async function login(userData) {
+  try {
+     const { email, password } = userData;
+     const URL = 'http://localhost:3001/rickandmorty/login/';
+     const { data } = await axios(URL + `?email=${email}&password=${password}`);
+     //* data = { access: true || false }
+     if(data.access) {
+        setAccess(data.access);
+        navigate('/home');
+     } else {
+        alert("Credenciales incorrectas!");
+     }
+  } catch (error) {
+     alert(error.message);
   }
+}
 
   function logout() {
     setAccess(false);
@@ -65,8 +117,8 @@ function App() {
 
   useEffect(() => {
     //* Logueo automático
-    !access && navigate("/home");
-    // !access && navigate('/');
+    // !access && navigate("/home");
+     !access && navigate('/');
   }, [access]);
 
   return (
