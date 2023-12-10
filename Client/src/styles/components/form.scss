@@ -4,6 +4,8 @@
     align-items: center;
     text-align: center;
     margin-top: 150px;
+    background-image: "https://www.pluggedin.com/wp-content/uploads/2020/01/Rick_and_Morty__Large.jpg.jpeg";
+    
   }
   
   .form_container_form{
@@ -14,7 +16,7 @@
     border-radius: 50px;
     background: transparent;
     backdrop-filter: blur(15px);
-    border: 3px solid greenyellow
+    border: 7px solid rgba(180, 42, 255, 0.373)
   }
 
   .form_input{
@@ -23,7 +25,7 @@
     margin-right: 5px;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid greenyellow;
+    border-bottom: 2px solid rgb(117, 1, 206);
     color: white  ;
     /* font-weight: bold; */
     font-size: 20px;
@@ -39,9 +41,9 @@
     /* margin-left: 10px; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    border: 2px solid #010E05;
-    background-color: #A1E945;
-    color: black;
+    border: 5px solid #330363;
+    background-color: #f486d6;
+    color: rgb(47, 2, 89);
     border-radius: 15px;
     
   }

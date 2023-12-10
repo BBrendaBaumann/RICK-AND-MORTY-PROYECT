@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeFav } from "./redux/actions.js";
-import "./App.css";
+/* import "./App.css"; */
 import Cards from "./components/cards/Cards.jsx";
 import axios from "axios";
 import Detail from "./components/detail/Detail.jsx";
@@ -139,7 +139,7 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <hr />
+      
     </div>
   );
 }

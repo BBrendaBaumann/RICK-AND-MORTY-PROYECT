@@ -1,6 +1,7 @@
 import Card from "../card/Card";
 import React from "react";
-/* import styles from "./Cards.module.css"; */
+
+
 
 //{ characters }
 //{id,name,status,species,gender,origin,image,onClose}, index
@@ -10,8 +11,16 @@ export default function Cards({characters, onClose}) {
     <div className="cards_container">
       { 
        !characters.length
-       ? <h2 /* className={styles.h2} */>Comience su aventura ingresando un id...</h2>
-       :
+       ? (
+        <div className="cards_container__mensajeinicio">
+          <p className="cards_container__mensajeinicio_text">
+          Start your adventure by entering an ID... enter the id and press <button className="cards_container__button">Add</button> to add
+            a new Character. You can also generate a random Character by
+            pressing <button className="cards_container__button" >Random</button>
+          </p>
+        </div>
+      )
+       : (
       characters.map(character => (
           <Card 
           key={character.id} 
@@ -25,7 +34,7 @@ export default function Cards({characters, onClose}) {
           onClose={onClose}
           > </Card>
         ))
-      }
+      )}
     </div>
   );
 }

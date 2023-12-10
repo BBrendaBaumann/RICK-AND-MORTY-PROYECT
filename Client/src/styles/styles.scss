@@ -1,3 +1,4 @@
+//! NO OLVIDAR PUNTO Y COMA LUEGO DE CADA IMPORTACION
 // global
 @import "./global/constants.scss";
 @import "./global/normalize.scss";
@@ -10,7 +11,8 @@
 @import "./components/cards.scss";
 @import "./components/detail.scss";
 @import "./components/favorites.scss";
-
+@import "./components/nav.scss";
+@import "./components/searchbar.scss";
 
 
 

@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../card/Card.jsx";
 import { filterCards, orderCards } from "../../redux/actions.js";
-/* import styles from "./Favorites.module.css" */
 import { TbArrowBackUp } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 
@@ -24,8 +23,9 @@ export default function Favorites({ onClose }) {
   }
 
    return (
-      <div>
+      <div >
          <div className="favorites_container">
+
          <div className="favorites_container__filter">
             <select 
             className="favorites_container__button" 
@@ -34,10 +34,12 @@ export default function Favorites({ onClose }) {
             >
                
             <option className="favorites_container__button_option" value="A">
-               Ascendente
+               {/* Ascendente */}
+               Upward
                </option>
             <option className="favorites_container__button_option" value="D">
-               Descendente
+               {/* Descendente */}
+               Falling
                </option>
             </select>
 
@@ -63,15 +65,11 @@ export default function Favorites({ onClose }) {
          </div>
 
          <div
-            style={{
-               display: "flex",
-               flexWrap: "wrap",
-               justifyContent: "space-evenly"
-            }}
+            className="favorites_rendercards"
          >
             {
                !myFavorites.length
-               ? <h2 className={styles.h2} >No hay favoritos</h2>
+               ? <h2>No hay favoritos</h2>
                :
                myFavorites.map(myFavorite => (
                   <Card

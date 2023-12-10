@@ -45,7 +45,6 @@ export default function Detail(props) {
  };
 
   useEffect(() => {
-    // axios(`${URL}/${id}?key=${API_KEY}`)
     axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
       ({ data }) => {
         if (data.name) {
@@ -71,7 +70,6 @@ export default function Detail(props) {
   />
 </div>
 <div className="detail_container__text">
-      {/* <h1>Detail</h1> */}
       <h2>{character.name}</h2>
       <img src={character.image} alt={character.name} />
       <h3>Status:{character.status}</h3>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import validation from "../../utils/validation";
-const banner =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/2560px-Rick_and_Morty.svg.png";
+
 
 export default function Form(props) {
   const [userData, setUserData] = useState({
@@ -34,7 +33,7 @@ export default function Form(props) {
 
   return (
     <div className="form_container">
-      <img src={banner} style={{ width: "300px" }} alt="" />
+      
 
       <form className="form_container_form" onSubmit={handleSubmit}>
         {/*<label>Email: </label>*/}
@@ -47,7 +46,7 @@ export default function Form(props) {
           placeholder="Ingresar email..."
           onChange={handleChange}
         />
-        <p style={{ color: "coral" }}>{errors.email ? errors.email : null}</p>
+        <p>{errors.email ? errors.email : null}</p>
 
         {/* <label>Password: </label> */}
         <input
@@ -59,7 +58,7 @@ export default function Form(props) {
           placeholder="Ingresar password..."
           onChange={handleChange}
         />
-        <p style={{ color: "coral" }}>{errors.password && errors.password}</p>
+        <p>{errors.password && errors.password}</p>
         
 
         <button 
