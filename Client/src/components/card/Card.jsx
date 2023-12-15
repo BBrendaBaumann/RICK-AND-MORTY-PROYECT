@@ -6,7 +6,7 @@ import { removeFav } from "../../redux/actions";
 
 
 export default function Card(props) {
-  const originName = origin.name;
+  
 
   const dispatch = useDispatch();
   const [isFav, setIsFav] = useState(false);
@@ -52,7 +52,7 @@ export default function Card(props) {
       <h2>Status: {props.status} </h2>
       <h2>Specie: {props.species} </h2>
       <h2>Género: {props.gender} </h2>
-      <h2>Origin: {props.originName} </h2>
+      {/* <h2>Origin: {props.origin.name} </h2> */}
       <Link to={`/detail/${props.id}`}>
         <img className="card_container__div_img" src={props.image} alt="" />
       </Link>

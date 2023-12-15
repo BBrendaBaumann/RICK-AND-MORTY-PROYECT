@@ -7,17 +7,20 @@
 
 .cards_container__mensajeinicio {
   background-color: black;
-  border: 2px solid rgb(178, 95, 255);
-  height: 20vh;
-  width: 80vw;
+  /* border: 8px solid rgba(178, 95, 255, 0.422); */
+  height: 30vh;
+  width: 100vw;
   font-size: 30px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: cursive;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
   background: transparent;
   backdrop-filter: blur(30px);
+  margin: 400px;
+  color:goldenrod;
+  padding: 20px;
 }
 
 .cards_container__mensajeinicio_text {
@@ -29,11 +32,11 @@
   padding: 4px 25px;
   font-size: 14px;
   margin-left: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: cursive;
   font-weight: bold;
-  border: 2px solid rgb(231, 94, 255);
+  border: 2px solid rgb(245, 78, 1);
   background-color: rgba(165, 85, 215, 0.7);
-  color: white;
+  color:goldenrod;
   border-radius: 15px;
   background: transparent;
   backdrop-filter: blur(15px);
